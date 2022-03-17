@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="user-list/" enctype="multipart/form-data">
+    <input type="text" placeholder="Username" name="username"><br>
+  
+    <input type="submit" value="Get User">
+
+    <textarea name="user_object">{{ user_object }}</textarea>
+</form>
+
+<style type="text/css">
+
+</style>
+
+{% endblock %}

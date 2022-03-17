@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="image_div">
+  {% for img in images %}
+      <div class="image">
+        <img src="{{img.img.url}}" class="image"/>
+      </div>
+  {% endfor%}
+</div>
+
+{% if is_staff %}
+  <form action="add_image" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="file" value="Select Image" name="file"><br>
+    <input type="submit" value="Add Image">
+  </form>
+
+  <form action="delete_image" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" placeholder="Image Name" name="image"><br>
+    <input type="submit" value="Delete Image">
+  </form>
+
+  <form action="update_first_name" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" placeholder="New name" name="new_first_name"><br>
+
+    <input type="submit" value="Change Name">
+  </form>
+
+  <form action="logout" method="post">
+    {%  csrf_token %}
+
+    <input type="submit" value="Logout"><br>
+  </form>
+
+  <form action="api/">
+    <input type="submit" value="Panel"><br>
+  </form>
+{% endif %}
+
+<style type="text/css">
+  .image {
+    float:left; 
+    width:260px; 
+    height:148px;
+  }
+  .image_div {
+    margin: auto;
+    width:1100px;
+  }
+</style>
+
+{% endblock %}

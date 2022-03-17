@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <form action="gallery" method="post">
+        {% csrf_token %}
+    
+        <input type="text" placeholder="Username" name="username"><br>
+        <input type="password" placeholder="Password" name="password"><br>
+    
+        <input type="submit" value="Login"><br>
+    </form>
+
+    <form action="register" method="get">
+        <input name="register" type="submit" value="Sign Up">
+    </form>
+</div>
+
+<style type="text/css">
+
+</style>
+
+{% endblock %}
+
+
